@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { HousingLocation } from '../interfaces/ihousing-location';
 import { HousingService } from '../housing.service';
 
@@ -11,10 +11,16 @@ export class HomeComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
   housingLocationList: HousingLocation[] | undefined = [];
-  housingService: HousingService = inject(HousingService);
 
+  constructor(private housingService: HousingService) { }
 
-  constructor(housingService: HousingService) {
-    this.housingLocationList = housingService.getAllHousingLocations();
+  getHousing = (): HousingLocation[] | undefined =>
+    this.housingLocationList = this
+      .housingService
+      .getAllHousingLocations();
+
+  ngOnInit() {
+    this.housingLocationList = this.getHousing();
   }
+
 }
