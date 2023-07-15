@@ -6,6 +6,7 @@
 </section>
 <section class="results">
   <app-housing-location
-    [housingLocation]="housingLocation"
+    *ngFor="let location of housingLocationList"
+    [housingLocation]="location"
   ></app-housing-location>
 </section>
