@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { IHousingLocation } from '../interfaces/ihousing-location';
+import { HousingLocation } from '../interfaces/ihousing-location';
 import { HousingService } from '../housing.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  housingLocationList: IHousingLocation[] | undefined = [];
+  housingLocationList: HousingLocation[] | undefined = [];
   housingService: HousingService = inject(HousingService);
 
 
