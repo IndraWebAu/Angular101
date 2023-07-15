@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IHousingLocation } from './interfaces/ihousing-location';
+import { HousingLocation } from './interfaces/ihousing-location';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class HousingService {
 
   baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  housingLocationList: IHousingLocation[] = [
+  housingLocationList: HousingLocation[] = [
     {
       id: 0,
       name: 'Acme Fresh Start Housing',
@@ -113,10 +113,10 @@ export class HousingService {
 
   constructor() { }
 
-  getAllHousingLocations = (): IHousingLocation[] | undefined =>
+  getAllHousingLocations = (): HousingLocation[] | undefined =>
     this.housingLocationList;
 
-  getHousingLocationById = (id: number): IHousingLocation | undefined =>
+  getHousingLocationById = (id: number): HousingLocation | undefined =>
     this.housingLocationList
       .find(h => h.id == id);
 }
