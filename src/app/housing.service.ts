@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HousingLocation } from './interfaces/housing-location';
+import { Observable, of, find } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -113,10 +114,14 @@ export class HousingService {
 
   constructor() { }
 
-  getAllHousingLocations = (): HousingLocation[] | undefined =>
-    this.housingLocationList;
+  getAllHousingLocations = (): Observable<HousingLocation[]> | undefined =>
+    of(this.housingLocationList);
 
-  getHousingLocationById = (id: number): HousingLocation | undefined =>
-    this.housingLocationList
+
+
+  getHousingLocationById = (id: number): HousingLocation | undefined => {
+    return this.housingLocationList
       .find(h => h.id == id);
+  }
+
 }
