@@ -124,4 +124,14 @@ export class HousingService {
       .find(h => h.id == id);
   }
 
+  submitForm(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string) {
+
+    // send with httpost
+
+  };
+
 }

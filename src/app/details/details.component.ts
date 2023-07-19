@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
 import { HousingLocation } from '../interfaces/housing-location';
@@ -8,7 +8,8 @@ import { HousingLocation } from '../interfaces/housing-location';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.less']
+  styleUrls: ['./details.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DetailsComponent {
 

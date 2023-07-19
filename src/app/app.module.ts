@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HousingLocationComponent } from './housing-location/housing-location.component';
 import { DetailsComponent } from './details/details.component';
+import { ApplyFormComponent } from './apply-form/apply-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HousingLocationComponent,
-    DetailsComponent
+    DetailsComponent,
+    ApplyFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
