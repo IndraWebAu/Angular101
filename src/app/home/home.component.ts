@@ -13,7 +13,15 @@ export class HomeComponent {
 
   housingLocationList: HousingLocation[] | undefined = [];
 
-  constructor(private housingService: HousingService) { }
+  filteredLocationList: HousingLocation[] | undefined = [];
+
+  constructor(
+    private housingService: HousingService) { }
+
+  ngOnInit() {
+    this.housingLocationList = this.getHousing();
+    this.filteredLocationList = this.housingLocationList;
+  }
 
   getHousing = (): HousingLocation[] | undefined => {
     let locations: HousingLocation[] = [];
@@ -23,9 +31,20 @@ export class HomeComponent {
     return locations;
   }
 
+  filterResults(filterValue: string) {
+    if (!filterValue)
+      this.filteredLocationList = this.housingLocationList;
 
-  ngOnInit() {
-    this.housingLocationList = this.getHousing();
+    this.filteredLocationList = this.housingLocationList
+      ?.filter(location =>
+        location
+          ?.city
+          .toLowerCase()
+          .includes(filterValue.toLowerCase()));
   }
 
+  clear(input: HTMLInputElement) {
+    input.value = '';
+    this.filteredLocationList = this.housingLocationList;
+  }
 }
